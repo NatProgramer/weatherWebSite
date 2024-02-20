@@ -12,13 +12,13 @@ searchInput.addEventListener('keyup', (e) => {
 }) || search.addEventListener('click', () => APIpetition())
 
 const APIpetition = () => {
-	const APIKey = 'b58a9c5966d35c37630cb2da9e140c2d'
+	const API_KEY = 'b58a9c5966d35c37630cb2da9e140c2d'
 	const cityName = document.querySelector('.search-box input').value
 
 	if (cityName === '') return
 
 	fetch(
-		`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKey}&units=metric`,
+		`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`,
 	)
 		.then((response) => response.json())
 		.then((json) => {
@@ -47,30 +47,29 @@ const APIpetition = () => {
 
 			switch (json.weather[0].main) {
 				case 'Clear':
-					weatherImage.src = './images/clear.png'
+					weatherImage.src = './public/clear.png'
 					break
 
 				case 'Rain':
-					weatherImage.src = './images/rain.png'
+					weatherImage.src = './public/rain.png'
 					break
 
 				case 'Snow':
-					weatherImage.src = './images/snow.png'
+					weatherImage.src = './public/snow.png'
 					break
 
 				case 'Clouds':
-					weatherImage.src = './images/cloud.png'
+					weatherImage.src = './public/cloud.png'
 					break
-
 				case 'Mist':
-					weatherImage.src = './images/mist.png'
+					weatherImage.src = './public/mist.png'
 					break
 
 				case 'Drizzle':
-					weatherImage.src = './images/drizzle.png'
+					weatherImage.src = './public/drizzle.png'
 					break
 				case 'Thunderstorm':
-					weatherImage.src = './images/snow.png'
+					weatherImage.src = './public/snow.png'
 					break
 				default:
 					weatherImage.src = ''
